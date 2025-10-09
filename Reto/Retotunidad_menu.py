@@ -1,25 +1,30 @@
+print("Recuerde que en el menu para obtener la opcion 2 primero debe ejecutar la opcion 1")
+
+masa = float(input("Ingrese la masa del avión (kg): "))
+S = float(input("Ingrese el área alar S (m^2): "))
+CL_max = float(input("Ingrese el CL_max: "))
+
+avion = {
+    "masa": masa,
+    "S": S,
+    "CL_max": CL_max,
+    "g": 9.81,
+    "rho": 1.225
+}
+
+decisiones = []
+velocidades = []
+sustentaciones = []
+repuesta = [0,1]
 import random
 control = True
 while control == True:
-    option = int(input("1. Entrar a la simulacion\n2. Salir del menu"))
+    option = int(input("1. Entrar a la simulacion\n2. Imprimir las listas y el diccionario\n3. Salir"))
     match option:
 
         case 1:
-            # Datos del avión (entrada del usuario)
-            masa = float(input("Ingrese la masa del avión (kg): "))
-            S = float(input("Ingrese el área alar S (m^2): "))
-            CL_max = float(input("Ingrese el CL_max: "))
 
-            # Diccionario con los datos del avión
-            avion = {
-                "masa": masa,
-                "S": S,
-                "CL_max": CL_max,
-                "g": 9.81,
-                "rho": 1.225
-            }
-
-            # Peso del avión
+            #Peso del avión
             W = avion["masa"] * avion["g"]
 
             # Variables iniciales
@@ -27,12 +32,6 @@ while control == True:
             distancia = 0
             a = 6.3
             tiempo_total = 10
-
-            # Listas para guardar los valores de cada segundo
-            decisiones = []
-            velocidades = []
-            sustentaciones = []
-            repuesta = [0,1]
 
             # Bucle del tiempo (simulación)
             for t in range(1, tiempo_total + 1):
@@ -85,8 +84,22 @@ while control == True:
             print(f"la sustentacion maxima fue de {maximo_sustentaciones}")
             minimo_sustentaciones = min(sustentaciones)
             print(f"la sustentacion minima fue de {minimo_sustentaciones}")
-        
-        case 2: 
+
+        case 2:
+            print("La lista desiciones contiene: ")
+            for desicion in decisiones:
+                print(decision)
+            print("la lista velocidades contiene: ")
+            for velocidad in velocidades:
+                print(velocidad)
+            print("la lista sustentaciones contiene: ")
+            for sustentacion in sustentaciones:
+                print(sustentacion)
+            print("EL diccionario contiene:")
+            for clave, valor in avion.items():
+                print(f"{clave}: {valor}")
+
+        case 3: 
             print("Saliendo del programa... ")
 
         case _:

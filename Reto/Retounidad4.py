@@ -28,6 +28,7 @@ velocidades = []
 sustentaciones = []
 repuesta = [0,1]
 
+
 # Bucle del tiempo (simulación)
 for t in range(1, tiempo_total + 1):
     decision = random.choice(repuesta) # int(input(f"Segundo {t}: ¿Acelerar? (1 = sí, 0 = no): "))
